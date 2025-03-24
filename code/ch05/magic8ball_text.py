@@ -1,7 +1,7 @@
 import random
 import time
 
-sh.show_message ("Ask a question?")
+print("Ask a question?")
 
 time.sleep(3)
 
