@@ -28,8 +28,8 @@ def move_pipes(matrix):
         row[-1] = BLUE
     return matrix
 
-matrix = gen_pipes(matrix)
 while True:
+    matrix = gen_pipes(matrix)
     for i in range(3):
         sense.set_pixels(flatten(matrix))
         matrix = move_pipes(matrix)
