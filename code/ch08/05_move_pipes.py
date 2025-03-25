@@ -29,7 +29,8 @@ def move_pipes(matrix):
     return matrix
 
 matrix = gen_pipes(matrix)
-for i in range(9):
-    sense.set_pixels(flatten(matrix))
-    matrix = move_pipes(matrix)
-    sleep(1)
+while True:
+    for i in range(3):
+        sense.set_pixels(flatten(matrix))
+        matrix = move_pipes(matrix)
+        sleep(1)
