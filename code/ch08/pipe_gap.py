@@ -13,10 +13,10 @@ def flatten(matrix):
 
 for row in matrix:
     row[-1] = RED
-    gap = randint(1, 6)
-    matrix[gap][-1] = BLUE
-    matrix[gap + 1][-1] = BLUE
-    matrix[gap - 1][-1] = BLUE
+gap = randint(1, 6)
+matrix[gap][-1] = BLUE
+matrix[gap + 1][-1] = BLUE
+matrix[gap - 1][-1] = BLUE
 
 matrix = flatten(matrix)
 sense.set_pixels(matrix)
