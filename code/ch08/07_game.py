@@ -59,10 +59,10 @@ while True:
     matrix = gen_pipes(matrix)
     for i in range(4):
         sense.set_pixels(flatten(matrix))
-        matrix = move_pipes(matrix)
         check_collision()
         if game_over:
             sense.show_message('Game Over')
             raise SystemExit
+        matrix = move_pipes(matrix)
         sense.set_pixel(x, y, YELLOW) # Show the astronaut
         sleep(1)
