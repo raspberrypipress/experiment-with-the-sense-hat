@@ -52,13 +52,13 @@ sense.stick.direction_any = move_astronaut
 while True:
     matrix = gen_pipes(matrix)
     for i in range(4):
-        sense.set_pixels(flatten(matrix))
-        matrix = move_pipes(matrix)
-        sense.set_pixel(x, y, YELLOW) # Show the astronaut
         if matrix[y][x] == RED:
             print(matrix[y][x])
             game_over = True
         if game_over:
             sense.show_message('Game Over')
             raise SystemExit
+        sense.set_pixels(flatten(matrix))
+        matrix = move_pipes(matrix)
+        sense.set_pixel(x, y, YELLOW) # Show the astronaut
         sleep(1)
