@@ -52,7 +52,6 @@ def check_collision():
     global game_over
     if matrix[y][x] == RED:
         game_over = True
-        sense.stick.direction_any = None
 
 sense.stick.direction_any = move_astronaut
 
