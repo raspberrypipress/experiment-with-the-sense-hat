@@ -47,6 +47,7 @@ def move_astronaut(event):
             x -= 1
     sense.set_pixel(x, y, YELLOW) # Show the astronaut
     if matrix[y][x] == RED:
+        print(matrix[y][x])
         game_over = True
 
 sense.stick.direction_any = move_astronaut
