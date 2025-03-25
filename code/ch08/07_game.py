@@ -46,9 +46,6 @@ def move_astronaut(event):
         elif event.direction == "left" and x > 0:
             x -= 1
     sense.set_pixel(x, y, YELLOW) # Show the astronaut
-    if matrix[y][x] == RED:
-        print(matrix[y][x])
-        game_over = True
 
 sense.stick.direction_any = move_astronaut
 
@@ -58,4 +55,7 @@ while not game_over:
         sense.set_pixels(flatten(matrix))
         matrix = move_pipes(matrix)
         sense.set_pixel(x, y, YELLOW) # Show the astronaut
+        if matrix[y][x] == RED:
+            print(matrix[y][x])
+            game_over = True
         sleep(1)
