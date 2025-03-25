@@ -44,7 +44,6 @@ def draw_astronaut(event):
             x += 1
         elif event.direction == "left" and x > 0:
             x -= 1
-    sense.set_pixel(x, y, YELLOW) # Show the astronaut
 
 sense.stick.direction_any = draw_astronaut
 
@@ -54,3 +53,4 @@ while True:
         sense.set_pixels(flatten(matrix))
         matrix = move_pipes(matrix)
         sleep(1)
+        sense.set_pixel(x, y, YELLOW) # Show the astronaut
