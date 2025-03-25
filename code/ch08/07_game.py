@@ -45,8 +45,8 @@ def move_astronaut(event):
             x += 1
         elif event.direction == "left" and x > 0:
             x -= 1
-    sense.set_pixel(x, y, YELLOW) # Show the astronaut
     check_collision()
+    sense.set_pixel(x, y, YELLOW) # Show the astronaut
 
 def check_collision():
     global game_over
