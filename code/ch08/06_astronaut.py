@@ -52,5 +52,5 @@ while True:
     for i in range(4):
         sense.set_pixels(flatten(matrix))
         matrix = move_pipes(matrix)
-        sleep(1)
         sense.set_pixel(x, y, YELLOW) # Show the astronaut
+        sleep(1)
