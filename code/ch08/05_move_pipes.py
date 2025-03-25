@@ -16,10 +16,18 @@ def gen_pipes(matrix):
         row[-1] = RED
     gap = randint(1, 6)
     matrix[gap][-1] = BLUE
-    matrix[gap - 1][-1] = BLUE
     matrix[gap + 1][-1] = BLUE
+    matrix[gap - 1][-1] = BLUE
+    return matrix
+
+def move_pipes(matrix):
+    for row in matrix:
+        for i in range(7):
+            row[i] = row[i + 1]
+        row[-1] = BLUE
     return matrix
 
 matrix = gen_pipes(matrix)
-matrix = flatten(matrix)
-sense.set_pixels(matrix)
+for i in range(9):
+    sense.set_pixels(flatten(matrix))
+    matrix = move_pipes(matrix)
