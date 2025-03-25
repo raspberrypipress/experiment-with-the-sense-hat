@@ -6,6 +6,7 @@ sense = SenseHat()
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
+game_over = False
 
 x = 0
 y = 0
@@ -33,7 +34,7 @@ def move_pipes(matrix):
     return matrix
 
 def move_astronaut(event):
-    global x, y
+    global x, y, game_over
     sense.set_pixel(x, y, BLUE) # Hide the astronaut
     if event.action == "pressed":
         if event.direction == "up" and y > 0:
@@ -45,10 +46,12 @@ def move_astronaut(event):
         elif event.direction == "left" and x > 0:
             x -= 1
     sense.set_pixel(x, y, YELLOW) # Show the astronaut
+    if matrix[y][x] == RED:
+        game_over = True
 
 sense.stick.direction_any = move_astronaut
 
-while True:
+while not game_over:
     matrix = gen_pipes(matrix)
     for i in range(4):
         sense.set_pixels(flatten(matrix))
