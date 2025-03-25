@@ -34,7 +34,7 @@ def move_pipes(matrix):
     return matrix
 
 def move_astronaut(event):
-    global x, y, game_over
+    global x, y
     sense.set_pixel(x, y, BLUE) # Hide the astronaut
     if event.action == "pressed":
         if event.direction == "up" and y > 0:
@@ -46,15 +46,19 @@ def move_astronaut(event):
         elif event.direction == "left" and x > 0:
             x -= 1
     sense.set_pixel(x, y, YELLOW) # Show the astronaut
+    check_collision()
+
+def check_collision():
+    global game_over
+    if matrix[y][x] == RED:
+        game_over = True
 
 sense.stick.direction_any = move_astronaut
 
 while True:
     matrix = gen_pipes(matrix)
     for i in range(4):
-        if matrix[y][x] == RED:
-            print(matrix[y][x])
-            game_over = True
+        check_collision()
         if game_over:
             sense.show_message('Game Over')
             raise SystemExit
