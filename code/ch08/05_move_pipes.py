@@ -30,7 +30,7 @@ def move_pipes(matrix):
 
 while True:
     matrix = gen_pipes(matrix)
-    for i in range(3):
+    for i in range(4):
         sense.set_pixels(flatten(matrix))
         matrix = move_pipes(matrix)
         sleep(1)
