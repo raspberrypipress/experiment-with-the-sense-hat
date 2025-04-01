@@ -38,6 +38,7 @@ def walking():
         time.sleep(0.5)
 
 sense.clear(0, 0, 0)
+sense.set_pixels(pet1)
 while True:
     x, y, z = sense.get_accelerometer_raw().values()
     if x >= 2 or y >= 2 or z >= 2:
