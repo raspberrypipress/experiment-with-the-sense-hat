@@ -42,4 +42,4 @@ while True:
     x, y, z = sense.get_accelerometer_raw().values()
     if x >= 2 and y >= 2 and z >= 2:
         break
-walking()
+    walking()
