@@ -33,4 +33,4 @@ while True:
         # since it was last shaken, display the message.
         if shaketime and time.time() - shaketime > 1:
             sh.show_message(random.choice(replies))
-            shaken = None
+            shaketime = None
