@@ -3,7 +3,7 @@ from datetime import datetime
 from csv import writer
 sense = SenseHat()
 
-sense.color.gain = 60
+sense.color.gain = 64
 sense.color.integration_cycles = 64
 
 def get_sense_data():
